@@ -31,33 +31,33 @@ namespace Workshop01.Custom
         //    }
         //}
 
-        ///// <summary>
-        ///// Get or set array data
-        ///// </summary>
-        ///// <param name="a">first dimension</param>
-        ///// <param name="b">second dimension</param>
-        //public byte this[int a, int b]
-        //{
-        //    get
-        //    {
-        //        return array[a][b];
-        //    }
-        //    set
-        //    {
-        //        array[a][b] = value;
-        //    }
-        //}
+        /// <summary>
+        /// Get or set array data
+        /// </summary>
+        /// <param name="a">first dimension</param>
+        /// <param name="b">second dimension</param>
+        public byte this[int a, int b]
+        {
+            get
+            {
+                return array[a][b];
+            }
+            set
+            {
+                array[a][b] = value;
+            }
+        }
 
-        ///// <summary>
-        ///// True if Array is empty
-        ///// </summary>
-        //public bool IsNull
-        //{
-        //    get
-        //    {
-        //        return array == null;
-        //    }
-        //}
+        /// <summary>
+        /// True if Array is empty
+        /// </summary>
+        public bool IsNull
+        {
+            get
+            {
+                return array == null;
+            }
+        }
     }
 
     /// <summary>
