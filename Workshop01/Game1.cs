@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using Workshop01.Custom;
 
 namespace Workshop01
 {
@@ -12,7 +13,8 @@ namespace Workshop01
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
         Player player;
-
+        CurrentMask currentMask;
+        Map map;
 
         public Game1()
         {
@@ -47,7 +49,15 @@ namespace Workshop01
             player.Initialize(Content.Load<Texture2D>("Graphics\\player"), playerPosition); 
 
             // Load Mask
-            //CollisionManager.MaskColorData = Content.Load<Mask>("Data\\mask");
+            Mask mask = Content.Load<Mask>("Data\\mask");
+            CollisionManager.MaskColorData = mask;
+            currentMask = new CurrentMask();
+            currentMask.Initialize(GraphicsDevice, mask);
+
+            // Map load
+            map = Content.Load<Map>("Data\\map0");
+            CollisionManager.MapData = map.Data;
+            currentMask.MapData = map.Data;
         }
 
         /// <summary>
@@ -73,6 +83,8 @@ namespace Workshop01
             player.Position.X = MathHelper.Clamp(player.Position.X, 0, GraphicsDevice.Viewport.Width - player.Width);
             player.Position.Y = MathHelper.Clamp(player.Position.Y, 0, GraphicsDevice.Viewport.Height - player.Height); 
 
+            currentMask.Update(gameTime);
+
             base.Update(gameTime);
         }
 
@@ -85,10 +97,12 @@ namespace Workshop01
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
             // Start drawing
-            spriteBatch.Begin(); 
+            spriteBatch.Begin();
 
-            // Draw the Player
+            // Draw game elements
             player.Draw(spriteBatch);
+            currentMask.Draw(spriteBatch);
+
 
             // Stop drawing
             spriteBatch.End(); 
