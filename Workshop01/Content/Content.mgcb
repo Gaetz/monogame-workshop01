@@ -11,6 +11,7 @@
 #-------------------------------- References --------------------------------#
 
 /reference:D:\Lije\git\workshop01\Workshop01\Workshop01.Data\bin\Windows\Debug\Workshop01.Data.dll
+/reference:D:\Lije\git\workshop01\Workshop01.Pipeline\bin\Windows\Debug\Workshop01.Pipeline.dll
 
 #---------------------------------- Content ---------------------------------#
 
@@ -29,4 +30,9 @@
 /importer:XmlImporter
 /processor:PassThroughProcessor
 /build:Data/mask.xml
+
+#begin Data/map0.map
+/importer:MapImporter
+/processor:MapProcessor
+/build:Data/map0.map
 

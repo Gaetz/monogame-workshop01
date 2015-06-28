@@ -5,11 +5,11 @@
     <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
     <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{2A540A79-8ACA-4F45-824D-8F78A154D9A1}</ProjectGuid>
-    <OutputType>WinExe</OutputType>
+    <ProjectGuid>{D5BDE8AD-6EF5-4C70-847C-AA1FACB6F4B1}</ProjectGuid>
+    <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>WorkshopEditor</RootNamespace>
-    <AssemblyName>Workshop01</AssemblyName>
+    <RootNamespace>Workshop01.Pipeline</RootNamespace>
+    <AssemblyName>Workshop01.Pipeline</AssemblyName>
     <FileAlignment>512</FileAlignment>
     <MonoGamePlatform>Windows</MonoGamePlatform>
     <MonoGameContentBuilderExe>
@@ -24,7 +24,6 @@
     <DefineConstants>DEBUG;TRACE;WINDOWS</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
     <PlatformTarget>x86</PlatformTarget>
@@ -38,31 +37,32 @@
   <PropertyGroup>
     <ApplicationIcon>Icon.ico</ApplicationIcon>
   </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
   <ItemGroup>
-    <Compile Include="CollisionManager.cs" />
-    <Compile Include="CurentMask.cs" />
-    <Compile Include="Game1.cs" />
-    <Compile Include="Player.cs" />
-    <Compile Include="Program.cs" />
+    <Compile Include="MapImporter.cs" />
+    <Compile Include="MapProcessor.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="MonoGame.Framework">
       <HintPath>$(MSBuildProgramFiles32)\MonoGame\v3.0\Assemblies\Windows\MonoGame.Framework.dll</HintPath>
     </Reference>
+    <Reference Include="MonoGame.Framework.Content.Pipeline">
+      <HintPath>..\..\..\..\Code\Geex\git\server\geex-sample\MonoGameGeex\Geex.Pipeline\MonoGame.Framework.Content.Pipeline.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Content\Data\mask.xml" />
-    <Content Include="Content\Graphics\player.png" />
     <Content Include="Icon.ico" />
   </ItemGroup>
   <ItemGroup>
     <MonoGameContentReference Include="Content\Content.mgcb" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="Workshop01.Data\Workshop01.Data.csproj">
+    <ProjectReference Include="..\Workshop01\Workshop01.Data\Workshop01.Data.csproj">
       <Project>{e6e35b8b-859c-4db8-8192-3cec90ab7c42}</Project>
       <Name>Workshop01.Data</Name>
     </ProjectReference>

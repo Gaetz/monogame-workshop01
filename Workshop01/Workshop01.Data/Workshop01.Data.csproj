@@ -41,6 +41,7 @@
     <StartupObject />
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Map.cs" />
     <Compile Include="Mask.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
