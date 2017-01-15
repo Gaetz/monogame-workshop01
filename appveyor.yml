@@ -35,3 +35,9 @@ before_build:
 build:
   project: BasicGeex\BasicGeex.sln 
   verbosity: normal
+
+# artifacts
+artifacts:
+- path: BasicGeex\BasicGeex\bin\Windows\x86\Release
+  name: BasicGeex-Latest
+  type: zip
