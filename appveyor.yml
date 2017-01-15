@@ -28,10 +28,13 @@ branches:
   only:
     - master
 before_build:
-  - if not exist output mkdir output
-  - if not exist output\net4 mkdir output\net4
-  - if not exist output\Portable mkdir output\Portable
   - nuget restore BasicGeex\BasicGeex.sln
 build:
   project: BasicGeex\BasicGeex.sln 
   verbosity: normal
+
+# artifacts
+artifacts:
+- path: BasicGeex\BasicGeex\bin\Windows\x86\Release
+  name: BasicGeex-Latest
+  type: zip
