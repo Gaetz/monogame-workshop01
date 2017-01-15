@@ -28,7 +28,6 @@ branches:
   only:
     - master
 before_build:
-  - if not exist output mkdir output
   - nuget restore BasicGeex\BasicGeex.sln
 build:
   project: BasicGeex\BasicGeex.sln 
