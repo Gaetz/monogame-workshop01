@@ -28,7 +28,6 @@ branches:
   only:
     - master
 before_build:
-  - if not exist output mkdir output
   - nuget restore BasicGeex\BasicGeex.sln
 build:
   project: BasicGeex\BasicGeex.sln 
@@ -36,6 +35,5 @@ build:
 
 # artifacts
 artifacts:
-- path: output
-  name: BasicGeex-Latest
-  type: zip
+  - path: BasicGeex-lastest.zip
+    name: BasicGeex-lastest
